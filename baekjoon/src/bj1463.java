@@ -22,6 +22,10 @@ public class bj1463 {
 
         }
 		
+		sc.close();
+		
+		System.out.println(cnt[x]);
+		
 	}
 
 }
