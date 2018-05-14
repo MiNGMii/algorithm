@@ -26,9 +26,14 @@ public class JO1307 {
 		// 배열에 입력받기
 		for (int i = n - 1; i >= 0; i--) {
 				
-			for (int j = n - 1; j >= 0; j--)
+			for (int j = n - 1; j >= 0; j--) {
+				
+				if (input > 'Z') {
+					input = 'A';
+				}
+				
 				arr[j][i] = input++;
-			
+			}
 		}
 		
 		// 배열 출력
