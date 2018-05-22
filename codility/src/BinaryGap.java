@@ -17,13 +17,15 @@ public class BinaryGap {
 			if(input.charAt(i) == '1')	arr[pos++] = i;
 		}
 		
-		int result = arr[1] - arr[0];
+		int result = arr[1] - arr[0] - 1;
 		
 		for (int i = 2; i < arr.length; i++) {
 			
-			if (result < arr[i] - arr[i-1])	result = arr[i] - arr[i-1];
+			if (result < arr[i] - arr[i-1] - 1)	result = arr[i] - arr[i-1] - 1;
 		}
 		
-		return result - 1;
+		if (result < 0) result = 0;
+		
+		return result;
     }
 }
