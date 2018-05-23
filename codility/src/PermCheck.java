@@ -12,15 +12,11 @@ public class PermCheck {
 	}
 	
 	public static int solution(int[] A) {
-        Arrays.sort(A);
+		Arrays.sort(A);
         
-        if (A[0] != 1)	return 0;
-        
-        if (A.length == 2 && A[0] != A[1] - 1)	return 0;
-        
-        for (int i = 1; i < A.length - 1; i++) {
+        for (int i = 1; i <= A.length; i++) {
         	
-        	if (A[i] != A[i-1] + 1 || A[i] != A[i+1] - 1)
+        	if (A[i - 1] != i)
         		return 0;
         }
 		
