@@ -7,26 +7,33 @@ public class MaxCounters {
 		System.out.println(Arrays.toString(solution(5, A)));
 	}
 	
-	// 정확도는 100%지만 시간복잡도 초과ㅠㅠ
 	public static int[] solution(int N, int[] A) {
-        int[] result = new int [N];
-        int max = 0;
+        int[] answer = new int[N];
+		int tempNum = 0;
+		int maxNum = 0;
         
-        for (int i = 0; i < A.length; i++) {
-        	
-        	if (A[i] >= 1 && A[i] <= N) {
-        		result[A[i] - 1]++;
-        		
-        		if (max < result[A[i] - 1])	
-        			max = result[A[i] - 1];
-        	}
-        	
-        	if (A[i] > N) {
-        		final int MAX = max;
-        		Arrays.setAll(result, (inex) -> MAX);
-        	}
-        }
-        
-		return result;
+		for (int i = 0; i < A.length; i++) {
+			
+			if (A[i] > N) {
+				maxNum = tempNum;
+				continue;
+			}
+			
+			if (answer[A[i] - 1] < maxNum)
+				answer[A[i] - 1] = maxNum;
+             
+			answer[A[i] - 1]++;
+             
+            if (answer[A[i] - 1] > tempNum)
+                tempNum = answer[A[i] - 1];
+		}
+		
+		for (int i = 0; i < N; i++) {
+			
+			if (answer[i] < maxNum)
+				answer[i] = maxNum;
+		}
+		
+		return answer;
     }
 }
