@@ -15,12 +15,10 @@ public class BestGroup {
 			sum += answer[i];
 		}
 		
-		for (int i = 0; i < n; i++) {
+		for (int i = n - 1; i >= 0; i--) {
 			
-			if (sum == s) 	{
-				Arrays.sort(answer);
+			if (sum == s)
 				return answer;
-			}
 			
 			answer[i]++;
 			sum++;
