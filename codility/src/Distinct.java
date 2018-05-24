@@ -10,11 +10,8 @@ public class Distinct {
 	public static int solution(int[] A) {
 		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
 		
-		for (int i = 0; i < A.length; i++) {
-			
-			if (map.get(A[i]) == null)
-				map.put(A[i], 1);
-		}
+		for (int i = 0; i < A.length; i++)
+			map.put(A[i], 1);
 		
 		return map.size();
 	}
