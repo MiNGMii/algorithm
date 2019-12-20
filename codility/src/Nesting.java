@@ -1,5 +1,3 @@
-import java.util.Stack;
-
 public class Nesting {
 
 	public static void main(String[] args) {
@@ -9,17 +7,15 @@ public class Nesting {
 	}
 	
 	public int solution(String S) {
-		Stack<Character> stack = new Stack<>();
+		int sum = 0;
 		
 		for (char c : S.toCharArray()) {
-			if (c == '(') {
-				stack.add(c);
-			} else if (stack.size() == 0 || stack.pop() == c) {
-				return 0;
-			}
+			if (c == '(')		sum++;
+			else if (sum > 0)	sum--;
+			else				return 0;
 		}
 		
-		if (stack.size() > 0) return 0;
+		if (sum > 0) return 0;
 		
         return 1;
     }
